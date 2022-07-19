@@ -51,6 +51,21 @@ return [
             'after_commit' => false,
         ],
 
+        'sqs-sns' => [
+            'driver' => 'sqs-sns',
+            'key'    => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'queue'  => env('SQS_QUEUE', 'your-queue-url'),
+            'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+            'routes' => [
+                // you can use the "Subject" field
+                'Subject' => 'App\\Jobs\\YourJob',
+                // or the "TopicArn" of your SQS message
+                'TopicArn:123' => 'App\\Jobs\\YourJob',
+                // to specify which job class should handle the job
+            ],
+        ],
+
         'sqs' => [
             'driver' => 'sqs',
             'key' => env('AWS_ACCESS_KEY_ID'),
