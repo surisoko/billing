@@ -58,11 +58,7 @@ return [
             'queue'  => env('SQS_QUEUE', 'your-queue-url'),
             'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
             'routes' => [
-                // you can use the "Subject" field
-                'Subject' => 'App\\Jobs\\YourJob',
-                // or the "TopicArn" of your SQS message
-                'TopicArn:123' => 'App\\Jobs\\YourJob',
-                // to specify which job class should handle the job
+                'BookingCreated' => 'App\Jobs\CreateUserFacturation',
             ],
         ],
 
