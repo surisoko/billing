@@ -6,7 +6,7 @@ use App\Jobs\CreateBillingUser;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class CreateBillingUserTest extends TestCase
+class CreateBillingCustomerTest extends TestCase
 {
     use WithFaker;
 
@@ -17,7 +17,7 @@ class CreateBillingUserTest extends TestCase
     }
 
     /** @test */
-    public function it_create_a_new_billing_user()
+    public function it_create_a_new_billing_customer()
     {
         $createBillingUser = new CreateBillingUser(
             subject: "BookingCreated",
