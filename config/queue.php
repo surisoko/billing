@@ -55,10 +55,10 @@ return [
             'driver' => 'sqs-sns',
             'key'    => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'queue'  => env('SQS_QUEUE', 'your-queue-url'),
+            'queue'  => env('SQS_HOTEL_EVENTS_QUEUE'),
             'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
             'routes' => [
-                'BookingCreated' => 'App\Jobs\CreateUserFacturation',
+                'BookingCreated' => \App\Jobs\CreateBillingUser::class,
             ],
         ],
 
